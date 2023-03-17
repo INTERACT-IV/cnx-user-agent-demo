@@ -2,7 +2,7 @@ import {CnxUserAgent} from '@connectics/cnx-user-agent'
 
 // Les valeurs suivantes sont fournies par Connectics
 const server = "sip-pre.connectics.fr"
-const user = "Prendre contact avec Connectics"
+const user = "Prendre_contact_avec_Connectics"
 const password = "Prendre contact avec Connectics"
 
 // Les callbacks écriront dans l'élément logs_agents

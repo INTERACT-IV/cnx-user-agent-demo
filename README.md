@@ -8,6 +8,7 @@ Pour lancer la démo, vous devez connaitre et renseigner dans index.js le nom du
 Puis sous VS Code, dans un terminal : 
 ```
 npm install
+npm run build
 npm run web
 ```
 
