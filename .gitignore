@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Fichier avec le user et passwd du registrar
+user.txt
