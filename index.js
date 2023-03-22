@@ -58,11 +58,11 @@ document.getElementById('btn_hangup').addEventListener('click',()=>{
 document.getElementById('btn_sip_trace').addEventListener('click',()=>{
     if(agent1.active_sip_trace){
       document.getElementById('sip_traces_agent1').innerText = agent1.sip_trace_off()
-      document.getElementById('btn_sip_trace').innerText = "Activer les traces SIP"
+      document.getElementById('btn_sip_trace').innerText = "Démarrer la capture SIP"
     }
     else{
       agent1.sip_trace_on()
-      document.getElementById('btn_sip_trace').innerText = "Désactiver les traces SIP"
+      document.getElementById('btn_sip_trace').innerText = "Arrêter et visualiser la capture SIP"
     }
 })
 
