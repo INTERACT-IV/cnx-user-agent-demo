@@ -14,5 +14,21 @@ module.exports = {
       path.resolve( __dirname, 'node_modules' )
     ]
   },
-  target: 'web'
+  target: 'web',
+  module: {
+    rules: [
+      {
+        test: /\.riot$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: '@riotjs/webpack-loader',
+          options: {
+            hot: false, // set it to true if you are using hmr
+            // add here all the other @riotjs/compiler options riot.js.org/compiler
+            // template: 'pug' for example
+          }
+        }]
+      }
+    ]
+  }
 };

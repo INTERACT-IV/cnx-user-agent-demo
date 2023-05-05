@@ -12,9 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "@connectics/cnx-user-agent": "^1.0.2",
-    "Express": "^3.0.1"
+    "Express": "^3.0.1",
+    "riot": "^7.1.0"
   },
   "devDependencies": {
+    "@riotjs/compiler": "^6.4.2",
+    "@riotjs/webpack-loader": "^6.0.0",
     "express": "^4.18.2",
     "webpack": "^5.76.2",
     "webpack-cli": "^5.0.1"

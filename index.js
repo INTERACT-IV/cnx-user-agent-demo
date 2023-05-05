@@ -1,5 +1,8 @@
 import {CnxUserAgent} from '@connectics/cnx-user-agent'
-
+import { component } from 'riot'
+import App from 'app.riot'
+component(App)(document.getElementById('riot_root'),
+{ message: 'Hello World', items: [] })
 // Les valeurs suivantes sont fournies par Connectics
 
 const server = "sip-pre.connectics.fr"
