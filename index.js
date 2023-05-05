@@ -1,10 +1,20 @@
 import {CnxUserAgent} from '@connectics/cnx-user-agent'
 
 // Les valeurs suivantes sont fournies par Connectics
-const server = "Prendre_contact_avec_Connectics"
-const user = "Prendre_contact_avec_Connectics"
-const password = "Prendre contact avec Connectics"
 
+const server = "sip-pre.connectics.fr"
+const user = "9998899980001"
+const password = "hiTocSMNZEFwyri7vKqcpemo"
+/*
+const server = "voip.interactivmanager.net"
+const user = "9998700350002"
+const password = "37uD8fyZk3JWfrwua5F9Antoine"
+*/
+/*
+const server = document.getElementById('inp_server').value
+const user = document.getElementById('inp_user').value
+const password = document.getElementById('inp_password').value
+*/
 // Les callbacks écriront dans l'élément logs_agents
 const logs_agent1=document.getElementById( 'logs_agent1' )
 
