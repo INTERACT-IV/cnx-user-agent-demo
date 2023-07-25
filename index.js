@@ -4,13 +4,14 @@ import {CnxUserAgent} from '@connectics/cnx-user-agent'
 const server = "Prendre_contact_avec_Connectics"
 const user = "Prendre_contact_avec_Connectics"
 const password = "Prendre contact avec Connectics"
+const stun_service = "Prendre contact avec Connectics"
 
 // Les callbacks écriront dans l'élément logs_agents
 const logs_agent1=document.getElementById( 'logs_agent1' )
 
 // Exemples de déclaration de callback avec des fonctions nommées
 function cbAccept(code, reason) {
-  logs_agent1.innerText += `Agent1 connecté, enregistrement accepté (code SIP = ${code}, raison = ${reason})\n`
+  logs_agent1.innerText += `Agent1 enregistré (code SIP = ${code}, raison = ${reason})\n`
 }
 
 function cbInvite(call_id, from, pai) {
@@ -19,16 +20,19 @@ function cbInvite(call_id, from, pai) {
 
 // Les callbacks peuvent être liés aux événements du CnxUserAgent de la manière suivante : 
 const callbacks = {
+  onConnect : () => { logs_agent1.innerText += 'Connecté'},
+  onDisconnect : () => { logs_agent1.innerText += 'Déconnecté'},
   onAccept : cbAccept,   
   onReject : (code, reason) => {logs_agent1.innerText += `Enregistrement refusé code SIP = ${code}, raison = ${reason}\n`},   
   onInvite : (call_id, from, pai) => { agent1.answer() },   // Exemple de décroché automatique : Sur présentation d'un appel on décroche (Ce callback est écrasé plus loin dans le code par une liaison tardive)
   onMedia : () => { logs_agent1.innerText += "Connexion média établie\n"},
   onHangup : (is_local_hangup) => {if(is_local_hangup) logs_agent1.innerText += "Raccroché local (par l'appelé)\n"; else logs_agent1.innerText += "Raccroché distant (par l'appelant)\n"},
+  onUnregister : () => { logs_agent1.innerText += 'Connecté - Non enregistré' },
 }
 
 // audio_agent1 est le nom d'une balise audio déclarée dans le html.
 // le paramètre callbacks peut être omis si on souhaite lier les callbacks après avoir créé le CnxUserAgent
-const agent1 = new CnxUserAgent(server, user , password, 'audio_agent1', callbacks)
+const agent1 = new CnxUserAgent({server:server, user:user , password:password, stun_service:stun_service, ice_gathering_timeout_ms:500}, 'audio_agent1', callbacks)
 agent1.trace_on()     // Lorsqu'on active les traces, tous les événements internes de CnxUserAgent sont affichés dans la console.
 
 agent1.onInvite = cbInvite   // Exemple de liaison tardive : elle remplace celle définie dans l'objet callbacks.
