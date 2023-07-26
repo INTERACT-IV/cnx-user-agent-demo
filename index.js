@@ -23,11 +23,11 @@ const callbacks = {
   onConnect : () => { logs_agent1.innerText += 'Connecté'},
   onDisconnect : () => { logs_agent1.innerText += 'Déconnecté'},
   onAccept : cbAccept,   
-  onReject : (code, reason) => {logs_agent1.innerText += `Enregistrement refusé code SIP = ${code}, raison = ${reason}\n`},   
+  onReject : (code, reason) => {logs_agent1.innerText += `Inscription refusée code SIP = ${code}, raison = ${reason}\n`},   
   onInvite : (call_id, from, pai) => { agent1.answer() },   // Exemple de décroché automatique : Sur présentation d'un appel on décroche (Ce callback est écrasé plus loin dans le code par une liaison tardive)
   onMedia : () => { logs_agent1.innerText += "Connexion média établie\n"},
   onHangup : (is_local_hangup) => {if(is_local_hangup) logs_agent1.innerText += "Raccroché local (par l'appelé)\n"; else logs_agent1.innerText += "Raccroché distant (par l'appelant)\n"},
-  onUnregister : () => { logs_agent1.innerText += 'Connecté - Non enregistré' },
+  onUnregister : () => { logs_agent1.innerText += 'Connecté - Non Inscrit' },
 }
 
 // audio_agent1 est le nom d'une balise audio déclarée dans le html.
